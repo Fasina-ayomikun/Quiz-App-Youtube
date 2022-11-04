@@ -238,6 +238,8 @@ nextBtn.addEventListener("click", () => {
 restartBtn.addEventListener("click", () => {
   resultContainer.classList.remove("show");
   questionsContainer.classList.add("show");
+  nextBtn.textContent = `Next question`;
+
   score = 0;
   acceptingAnswers = true;
   index = 0;
@@ -250,6 +252,8 @@ quitBtns.forEach((btn) => {
     resultContainer.classList.remove("show");
     subjectsContainer.classList.add("show");
     questionsContainer.classList.remove("show");
+
+    nextBtn.textContent = `Next question`;
     score = 0;
     acceptingAnswers = true;
     index = 0;
