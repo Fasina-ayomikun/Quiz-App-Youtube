@@ -121,6 +121,15 @@ let subject = "";
 let score = 0;
 let index = 0;
 let acceptingAnswers = true;
+// Sound Effects
+const audio1 = new Audio();
+const audio2 = new Audio();
+const audio3 = new Audio();
+const audio4 = new Audio();
+audio1.src = "error.wav";
+audio2.src = "win.wav";
+audio3.src = "success.mp3";
+audio4.src = "lose.mp3";
 
 const getSubjects = () => {
   // Get the subjects in the data
@@ -194,7 +203,9 @@ const handleClick = (e, correctOption) => {
     infoContainer.classList.add("win");
     score++;
     scoreContainer.innerHTML = `<strong>Score:</strong> ${score}/5`;
+    audio2.play();
   } else {
+    audio1.play();
     infoContainer.classList.remove("win");
     infoContainer.classList.add("lose");
   }
@@ -214,7 +225,9 @@ nextBtn.addEventListener("click", () => {
     if (score > 2) {
       result.classList.remove("lose");
       result.classList.add("win");
+      audio3.play();
     } else {
+      audio4.play();
       result.classList.remove("win");
       result.classList.add("lose");
     }
@@ -229,6 +242,7 @@ restartBtn.addEventListener("click", () => {
   acceptingAnswers = true;
   index = 0;
   getQuestions();
+  audio2.play();
 });
 
 quitBtns.forEach((btn) => {
@@ -239,6 +253,7 @@ quitBtns.forEach((btn) => {
     score = 0;
     acceptingAnswers = true;
     index = 0;
+    audio1.play();
   });
 });
 getSubjects();
