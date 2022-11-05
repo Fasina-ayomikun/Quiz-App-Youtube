@@ -56,7 +56,7 @@ const quizData = [
       {
         question: "Javascript can only be used for Web development",
         options: ["True", "False", "Maybe", "I don't know"],
-        correctOption: "True",
+        correctOption: "False",
       },
       {
         question: "What is '2' + '2'",
